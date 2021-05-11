@@ -26,6 +26,7 @@ const io = require("socket.io")(server,{
 });
 
 app.use("/socialApplication",require("./routes/auth"));
+app.use("/socialApplication",require("./routes/user"));
 
 
 io.on("connection",(socket)=>{

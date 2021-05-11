@@ -1,4 +1,6 @@
-const {forgetPassword , loginUser , registerUser ,resetPassword ,verifyUser , getUsers} = require("../controller/auth");
+const {forgetPassword , loginUser , registerUser ,resetPassword ,verifyUser } = require("../controller/auth");
+
+const {registerInputNullChecker} = require("../middleware/userRegiseterInputChecker");
 
 
 const router = require("express").Router();
@@ -7,7 +9,7 @@ const router = require("express").Router();
 
 //TODO handle the <register [post] request> request here
 
-router.route("/app/api/register").post(registerUser);
+router.route("/app/api/register").post(registerInputNullChecker,registerUser);
 
 
 
